@@ -1,0 +1,32 @@
+
+CREATE PROCEDURE cp_moy_fil( IN v_id_etud varchar(11),
+                             OUT v_moy_fil varchar(50) )
+BEGIN
+    DECLARE v_fil INT;
+    DECLARE v_id_etu INT;
+    DECLARE v_som_note DECIMAL(6,2) DEFAULT 0;
+    DECLARE v_coef INT DEFAULT 0;
+    DECLARE fincurs1 BOOLEAN DEFAULT 0;
+
+    DECLARE curs1 CURSOR FOR
+        SELECT id
+        FROM ETUDIANT
+        WHERE id_fil = v_fil;
+        DECLARE CONTINUE HANDLER FOR NOT FOUND SET fincurs1 := 1;
+
+    SELECT id_fil INTO v_fil
+        FROM ETUDIANT
+        WHERE id = v_id_etud; 
+
+    OPEN curs1;
+    FETCH curs1 INTO v_id_etu;
+    WHILE (NOT fincurs1) DO
+        CALL cp_moy_etu(v_id_etu,@a);
+        SET v_som_note := v_som_note + @a;
+        SET v_coef := v_coef + 1;
+        FETCH curs1 INTO v_id_etu;
+    END WHILE;
+    CLOSE curs1;
+
+    SET v_moy_fil := ROUND( (v_som_note/v_coef),2 );
+END

@@ -1,0 +1,10 @@
+
+CREATE PROCEDURE cp_sup_etud( IN v_id_etud varchar(11), 
+                              OUT erreur INT)
+
+BEGIN
+    DELETE FROM ETUDIANT
+    WHERE id = v_id_etud;
+    
+    SET erreur := 0;
+END

@@ -1,0 +1,15 @@
+
+CREATE PROCEDURE cp_filtre_inscrit_etudiant( IN v_num_etud varchar(11), IN v_nom_etud varchar(55), 
+                                           OUT v_table varchar(20) )
+BEGIN
+    DROP TABLE IF EXISTS resultat;
+
+    CREATE TABLE resultat AS
+        SELECT * 
+        FROM vue_list_inscrit 
+        WHERE LOWER(id_etud) = LOWER(v_num_etud) COLLATE latin1_general_cs
+            OR LOWER(identite) LIKE CONCAT('%', LOWER(v_nom_etud), '%') COLLATE latin1_general_cs  
+        ORDER BY id_etud;
+
+    SET v_table := 'resultat'; 
+END

@@ -1,0 +1,92 @@
+inherited f_note_list: Tf_note_list
+  Left = 982
+  Height = 275
+  Top = 205
+  Width = 914
+  Caption = 'f_note_list'
+  ClientHeight = 275
+  ClientWidth = 914
+  inherited pnl_titre: TPanel
+    Width = 914
+    ClientWidth = 914
+    object lbl_titre: TLabel[0]
+      Left = 0
+      Height = 34
+      Top = 0
+      Width = 110
+      Align = alLeft
+      Caption = 'Relevé de Notes '
+      ParentColor = False
+    end
+    object lbl_note_moy: TLabel[1]
+      Left = 110
+      Height = 34
+      Top = 0
+      Width = 88
+      Align = alLeft
+      Caption = 'lbl_note_moy'
+      ParentColor = False
+    end
+  end
+  inherited pnl_btn: TPanel
+    Top = 241
+    Width = 914
+    ClientWidth = 914
+    Visible = False
+    inherited pnl_btn_ligne: TPanel
+      Width = 515
+      ClientWidth = 515
+      inherited btn_line_detail: TSpeedButton
+        Left = 353
+      end
+      inherited btn_line_add: TSpeedButton
+        Left = 394
+      end
+      inherited btn_line_delete: TSpeedButton
+        Left = 473
+      end
+      inherited btn_line_edit: TSpeedButton
+        Left = 433
+      end
+    end
+  end
+  inherited pnl_affi: TPanel
+    Height = 207
+    Width = 914
+    ClientHeight = 207
+    ClientWidth = 914
+    inherited sg_liste: TStringGrid
+      Height = 207
+      Width = 914
+      ColCount = 3
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'lib_court'
+          Width = 200
+        end      
+        item
+          Alignment = taRightJustify
+          PickList.Strings = (          )
+          Title.Alignment = taRightJustify
+          Title.Caption = 'coef'
+          Width = 45
+        end      
+        item
+          Alignment = taRightJustify
+          PickList.Strings = (          )
+          Title.Alignment = taRightJustify
+          Title.Caption = 'note'
+          Width = 75
+        end>
+      ColWidths = (
+        200
+        45
+        75
+      )
+      Cells = (
+        0
+      )
+    end
+  end
+end

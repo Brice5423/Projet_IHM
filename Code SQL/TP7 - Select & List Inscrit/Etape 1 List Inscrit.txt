@@ -1,0 +1,11 @@
+
+CREATE VIEW vue_list_inscrit AS
+
+SELECT ETUDIANT.id AS id_etud, 
+	ETUDIANT.civ AS civi, 
+	CONCAT(ETUDIANT.nom,' ',ETUDIANT.prenom) AS identite,
+	ETUDIANT.ville AS domicile,
+ 	FILIERE.code AS code_filiere,
+ 	FILIERE.lib_court AS lib_court_filiere
+	 
+FROM ETUDIANT LEFT JOIN FILIERE ON ETUDIANT.id_fil = FILIERE.id

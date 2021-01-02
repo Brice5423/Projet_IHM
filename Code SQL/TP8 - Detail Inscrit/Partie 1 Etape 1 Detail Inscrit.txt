@@ -1,0 +1,19 @@
+
+CREATE VIEW vue_detail_inscrit AS 
+
+SELECT ETUDIANT.id AS num_etud,
+    ETUDIANT.civ AS civilite,  
+    ETUDIANT.nom AS nom_etud,
+    ETUDIANT.prenom AS prenom_etud,
+
+    ETUDIANT.adresse AS adresse,
+    ETUDIANT.cp AS cp,
+    ETUDIANT.ville AS ville,
+
+    ETUDIANT.telephone AS tel,
+    ETUDIANT.portable AS portable,
+    ETUDIANT.mel AS mail,
+
+    FILIERE.code AS code_fil
+
+FROM ETUDIANT LEFT JOIN FILIERE ON ETUDIANT.id_fil = FILIERE.id

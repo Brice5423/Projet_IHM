@@ -1,0 +1,120 @@
+object f_gabarit: Tf_gabarit
+  Left = 664
+  Height = 800
+  Top = 120
+  Width = 1200
+  Caption = 'Gestion de la scolarité'
+  ClientHeight = 0
+  ClientWidth = 0
+  Color = 15461355
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -16
+  Font.Name = 'Calibri'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Menu = mnu_main
+  OnShow = FormShow
+  LCLVersion = '1.6.0.4'
+  object pnl_ariane: TPanel
+    Left = 0
+    Height = 30
+    Top = 0
+    Width = 0
+    Align = alTop
+    Caption = 'fil d''ariane'
+    TabOrder = 0
+  end
+  object pnl_info: TPanel
+    Left = 0
+    Height = 30
+    Top = -30
+    Width = 0
+    Align = alBottom
+    Caption = 'message d''information'
+    TabOrder = 1
+  end
+  object pnl_travail: TPanel
+    Left = -950
+    Height = 0
+    Top = 0
+    Width = 950
+    Align = alRight
+    Caption = 'zone de travail'
+    ClientHeight = 0
+    ClientWidth = 950
+    Color = 15461355
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Name = 'Calibri'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    object lbl_bienvenu: TLabel
+      Left = 88
+      Height = 19
+      Top = 216
+      Width = 83
+      Alignment = taCenter
+      Caption = 'lbl_bienvenu'
+      ParentColor = False
+      Visible = False
+    end
+  end
+  object pnl_selection: TPanel
+    Left = 0
+    Height = 0
+    Top = 0
+    Width = 0
+    Align = alClient
+    Color = 15461355
+    ParentColor = False
+    TabOrder = 3
+  end
+  object mnu_main: TMainMenu
+    ParentBidiMode = False
+    left = 232
+    top = 24
+    object item_accueil: TMenuItem
+      Caption = 'Accueil'
+      OnClick = mnu_item_Click
+    end
+    object item_inscrit: TMenuItem
+      Caption = 'Inscrit'
+      OnClick = mnu_item_Click
+      object item_liste_inscrit: TMenuItem
+        Caption = 'Liste'
+        OnClick = mnu_item_Click
+      end
+      object item_archive: TMenuItem
+        Caption = 'Archive'
+        OnClick = mnu_item_Click
+        object item_archiveN1: TMenuItem
+          Caption = 'Archive N-1'
+          OnClick = mnu_item_Click
+        end
+        object item_archiveN2: TMenuItem
+          Caption = 'Archive N-2'
+          OnClick = mnu_item_Click
+        end
+      end
+    end
+    object item_filiere: TMenuItem
+      Caption = 'Filière'
+      OnClick = mnu_item_Click
+      object item_liste_filiere: TMenuItem
+        Caption = 'Liste'
+        OnClick = mnu_item_Click
+      end
+      object item_statistiques: TMenuItem
+        Caption = 'Statistiques'
+        OnClick = mnu_item_Click
+      end
+    end
+    object item_quitter: TMenuItem
+      Caption = 'Quitter'
+      OnClick = item_quitterClick
+    end
+  end
+end

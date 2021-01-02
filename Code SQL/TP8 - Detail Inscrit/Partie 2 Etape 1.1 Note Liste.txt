@@ -1,0 +1,9 @@
+
+CREATE VIEW vue_note_liste AS 
+
+SELECT UE.lib_court AS lib_court,
+                        UE.coef,
+                        NOTATION.note,
+                        NOTATION.id_etud
+
+FROM UE JOIN NOTATION ON UE.id = NOTATION.id_UE

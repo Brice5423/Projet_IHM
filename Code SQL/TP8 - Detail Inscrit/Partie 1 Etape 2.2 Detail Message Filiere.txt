@@ -1,0 +1,9 @@
+
+CREATE PROCEDURE cp_message_filiere( IN v_code_fil varchar(11),
+                                    OUT detail_fil varchar(100) )
+BEGIN 
+    SELECT CONCAT(FILIERE.lib_court, char(13), FILIERE.lib_milong) INTO detail_fil 
+    FROM FILIERE
+    WHERE FILIERE.code COLLATE latin1_general_ci = v_code_fil;
+END
+

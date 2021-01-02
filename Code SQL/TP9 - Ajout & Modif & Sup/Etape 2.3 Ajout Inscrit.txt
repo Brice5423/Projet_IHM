@@ -1,0 +1,29 @@
+
+CREATE PROCEDURE cp_ajout_etud( IN v_id_etud varchar(11), IN v_civ varchar(4),       IN v_nom varchar(25),  IN v_prenom varchar(25), 
+                                IN v_adresse varchar(50), IN v_postal varchar(5),    IN v_ville varchar(25),
+                                IN v_tel varchar(10),     IN v_portable varchar(10), IN v_mail varchar(50),
+                                IN v_code_fil varchar(11),
+                                OUT erreur INT )
+
+BEGIN
+    DECLARE v_id_fil INT;
+    
+    IF v_code_fil = '302-5KTMJ1' THEN 
+        SET v_id_fil = 1;
+    END IF;
+    
+    IF v_code_fil = '302-5KTMI7' THEN 
+        SET v_id_fil = 2;
+    END IF;
+
+    INSERT INTO ETUDIANT( id, civ, nom, prenom,  
+                          adresse, cp, ville,
+                          portable, telephone, mel,
+                          id_fil )    
+    VALUES( v_id_etud, v_civ, v_nom, v_prenom,  
+            v_adresse, v_postal, v_ville,
+            v_tel, v_portable, v_mail,
+            v_id_fil );
+    
+    SET erreur := 0;
+END

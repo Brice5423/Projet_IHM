@@ -1,0 +1,9 @@
+
+CREATE PROCEDURE cp_moy_etu( IN v_id_etud varchar(11), 
+                             OUT v_moy_etud varchar(50) )
+BEGIN
+    SELECT ROUND( (SUM(note*coef) / SUM(coef)),2 ) INTO v_moy_etud
+        FROM NOTATION LEFT JOIN UE ON NOTATION.id_UE = UE.id
+        WHERE NOTATION.id_etud = v_id_etud
+            AND NOTATION.note >= 0;
+END

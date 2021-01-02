@@ -1,0 +1,7 @@
+
+CREATE VIEW vue_code_fil_liste AS 
+
+SELECT code AS code_fil,
+       id AS id_fil
+
+FROM FILIERE

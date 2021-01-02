@@ -1,0 +1,23 @@
+
+CREATE PROCEDURE cp_modif_etud( IN v_id_etud varchar(11), IN v_civ varchar(4),       IN v_nom varchar(25),  IN v_prenom varchar(25), 
+                                IN v_adresse varchar(50), IN v_postal varchar(5),    IN v_ville varchar(25),
+                                IN v_tel varchar(10),     IN v_portable varchar(10), IN v_mail varchar(50),
+                                OUT erreur INT )
+
+BEGIN
+    UPDATE ETUDIANT
+        SET civ = v_civ,
+            nom = v_nom,
+            prenom = v_prenom,
+
+            adresse = v_adresse,
+            cp = v_postal,
+            ville = v_ville,
+
+            telephone = v_tel,
+            portable = v_portable,
+            mel = v_mail
+        WHERE  id  = v_id_etud;
+    
+    SET erreur := 0;
+END

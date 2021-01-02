@@ -1,0 +1,19 @@
+
+CREATE PROCEDURE cp_note_liste_etud( IN v_id_etud varchar(11), 
+                                     OUT v_table varchar(20) )
+BEGIN
+    DROP TABLE IF EXISTS resultat;
+
+    CREATE TABLE resultat AS
+        SELECT lib_court, 
+               CONCAT('x ',coef), 
+               CASE
+                    WHEN note < 0 THEN 'Non noté'
+                    WHEN note >=0 THEN note
+                        END AS note
+        FROM vue_note_liste
+        WHERE id_etud = v_id_etud
+        ORDER BY lib_court;
+
+    SET v_table := 'resultat'; 
+END
